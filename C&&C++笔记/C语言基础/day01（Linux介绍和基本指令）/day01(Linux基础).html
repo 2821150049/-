@@ -1,0 +1,351 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>day01(Linux基础)</title></head>
+<body><h1>day01(Linux基础)</h1>
+<h3>1、目录文件及分类</h3>
+<ol start='' >
+<li><p>目录又叫文件夹，是包含说有文件的</p>
+</li>
+<li><p>路径：是反应目录和文件的位置</p>
+<blockquote><p>/:反斜杠</p>
+<p>\:正斜杠</p>
+<p>linux中没有盘符：/home/主文件夹/</p>
+<ul>
+<li>绝对路径</li>
+<li>相对路径</li>
+<li>../:表示上级目录</li>
+
+</ul>
+</blockquote>
+</li>
+<li><p>一切皆文件，且没有扩展名，可以通过颜色区分</p>
+</li>
+<li><p>文件分类（五种，六类）</p>
+<ol start='' >
+<li>普通文件</li>
+<li>设备文件（字符设备文件、块设备文件）</li>
+<li>目录文件</li>
+<li>管道文件（进程通信）</li>
+<li>链接文件（Windows中相当于快捷方式）</li>
+
+</ol>
+</li>
+<li><p>文件的权限（读(r)、写(w)、执行(x)）</p>
+<ol start='' >
+<li><p>d rwx rwx rwx分为三组</p>
+<ol start='' >
+<li>d   是目录的意思</li>
+<li>第一组，文件的所属用户</li>
+<li>第二组，文件的所属组</li>
+<li>第三组，其他用户</li>
+
+</ol>
+</li>
+
+</ol>
+</li>
+
+</ol>
+<p><img src='img\1.png' alt='1' referrerPolicy='no-referrer' /></p>
+<ol start='6' >
+<li>第一个字母代表文件类型</li>
+
+</ol>
+<blockquote><p>&quot;d&quot;	代表文件夹</p>
+<p>&quot;-&quot;	代表普通文件</p>
+<p>&quot;c&quot;	代表硬件字符设备</p>
+<p>&quot;b&quot;	代表硬件块设备</p>
+<p>&quot;s&quot;	表示管道文件</p>
+<p>&quot;l&quot;	代表软连接文件</p>
+</blockquote>
+<h3>2、Linux命令</h3>
+<ol start='' >
+<li><p>格式：<strong>命令	选项 	参数</strong></p>
+</li>
+<li><p>查看帮助文档</p>
+</li>
+<li><p>q键man命令退出</p>
+</li>
+<li><p>快捷键</p>
+<ol start='' >
+<li>打开终端	ctrl + alt + t</li>
+<li>在终端退出锁定     Ctrl + c</li>
+<li>帮助：命令 --help     man</li>
+<li>不支持Windows中的快捷键</li>
+<li>man 命令：可以查找命令</li>
+<li><strong>Tab可以快速补全</strong>(不能有重复项，如果有重复项，按两下，就会显示列表)</li>
+<li>翻上次的命令用箭头键 </li>
+<li>清屏         ctrl + l  或  clear（区别ctrl + l只是清楚当前页的内容，而clear是清除所有内容）</li>
+
+</ol>
+</li>
+
+</ol>
+<h3>3.常用命令</h3>
+<ol start='' >
+<li><p><strong>ls	查看文件内容</strong></p>
+<ol start='' >
+<li>-a	文件+隐藏文件</li>
+<li>-l          列表形式显示所有文件,不包含影藏文件</li>
+<li>-lh        按照1024倍数显示，不含隐藏文件</li>
+<li>-h         显示文件大小</li>
+<li>ll（ls -all）           所有文件（包括隐藏文件）</li>
+
+</ol>
+<p><img src='img\2.png' alt='2' referrerPolicy='no-referrer' /></p>
+<p><img src='img\3.png' alt='3' referrerPolicy='no-referrer' /></p>
+</li>
+<li><p>通配符（查看几个文件）</p>
+<ol start='' >
+<li><p>【*】       匹配任意多个字符（0-256）</p>
+<ol start='' >
+<li>ls a*	一个以上字符</li>
+
+</ol>
+<p><img src='img\4.png' alt='4' referrerPolicy='no-referrer' /></p>
+</li>
+<li><p>【?】      匹配任意一个字符</p>
+<ol start='' >
+<li>ls a?	两个字符（几个问号就匹配几个字符的文件）</li>
+
+</ol>
+</li>
+<li><p>【[ ]】     括号中的所有字符  </p>
+<ol start='' >
+<li>【[a-z]】 区间法，匹配a-z的所有字符   </li>
+<li>【[abcde]】 穷举法</li>
+
+</ol>
+</li>
+<li><p>【\】      转义字符</p>
+<ol start='' >
+<li>ls  \*abc （一次只能转一个字符）</li>
+
+</ol>
+</li>
+
+</ol>
+</li>
+<li><p>目录的创建规则</p>
+<ol start='' >
+<li>大小是256</li>
+<li>不能包含特殊字符</li>
+<li>见名知意</li>
+
+</ol>
+</li>
+<li><p>输出重定向 【&gt;】</p>
+<ol start='' >
+<li>将文件输出到一个文件中会覆盖之前内容</li>
+
+</ol>
+</li>
+<li><p>附加重定向【&gt;&gt;】</p>
+<ol start='' >
+<li>将内容加到之前的后面</li>
+
+</ol>
+</li>
+<li><p>more 命令 ：按页显示（和ls或其他命令一起用需要加管道&quot;|&quot;格式是:ls | more）</p>
+<ol start='' >
+<li>空格：按页翻</li>
+<li>enter：按行翻</li>
+<li>b：往前滚</li>
+<li>f：往后滚</li>
+<li>q：退出</li>
+
+</ol>
+</li>
+<li><p>管道：&quot;|&quot;</p>
+<ul>
+<li>一个命令的输出可以通过管道做为另一个命令的输入</li>
+
+</ul>
+</li>
+<li><p><strong>切换文件目录：cd</strong></p>
+<ul>
+<li>Linux所有的目录和文件名大小写敏感</li>
+
+</ul>
+<ol start='' >
+<li><p>cd 什么都不加回到用户主目录</p>
+<p><img src='img\5.png' alt='5' referrerPolicy='no-referrer' /></p>
+</li>
+<li><pre><code class='language-c' lang='c'>./ //表示当前目录下的（可写可不写）
+</code></pre>
+</li>
+<li><pre><code class='language-c' lang='c'>cd ..//表示回到上级目录中去
+</code></pre>
+</li>
+<li><pre><code class='language-c' lang='c'>cd //单纯cd只能回到用户主目录中去
+</code></pre>
+</li>
+<li><pre><code class='language-c' lang='c'>cd ~ //切换到当前用户的主目录中去
+</code></pre>
+</li>
+<li><pre><code class='language-c' lang='c'>cd - //切换到上一次的目录中去
+    cd /	//切换到/目录中去
+</code></pre>
+</li>
+
+</ol>
+</li>
+<li><p><strong>创建文件夹和删除文件夹：mkdir、rmdir</strong></p>
+<pre><code class='language-c' lang='c'>mkdir 文件名
+例.mkdir day01
+rmdir 文件名
+例.rmdir day01//目录必须是空的，不是空的无法删除
+</code></pre>
+<p><img src='img\6.png' alt='6' referrerPolicy='no-referrer' /></p>
+<p><img src='img\7.png' alt='7' referrerPolicy='no-referrer' /></p>
+<pre><code class='language-c' lang='c'>mkdir 加-p递归创建文件夹
+</code></pre>
+<p><img src='img\8.png' alt='8' referrerPolicy='no-referrer' /></p>
+<pre><code class='language-c' lang='c'>mkdir day01/text day02/text -p //创建同一级别文件夹，和在对应文件夹下递归创建文件夹
+</code></pre>
+<p><img src='img\9.png' alt='9' referrerPolicy='no-referrer' /></p>
+</li>
+<li><p><strong>删除：rm</strong></p>
+<pre><code class='language-c' lang='c'>rm -r  //强制删除，无论文件夹里有没有文件都删
+rm -i  //交互式方式删除 ，Yy不区分大小写
+rm -f  //强制删除，忽略不存的文件，没有提示
+</code></pre>
+<p><img src='img\10.png' alt='10' referrerPolicy='no-referrer' /></p>
+</li>
+<li><p><strong>建立链接文件：ln</strong></p>
+<ul>
+<li><p>软链接   ln -s a.txt c.txt    源文件删除的话就不能找到文件</p>
+<pre><code class='language-c' lang='c'>ln -s 源文件 链接文件//不会占资源，但是删除源文件，会影响硬链接文件
+</code></pre>
+</li>
+<li><p>硬链接   ln a.txt b.txt   相当于拷贝(但和拷贝有区别，修改了源文件，硬链接文件会改变，就像影分身)</p>
+<pre><code class='language-c' lang='c'>ln 源文件 链接文件//会占资源，但是删除源文件，不会影响硬链接文件
+</code></pre>
+</li>
+
+</ul>
+</li>
+
+</ol>
+<p><img src='img\11.png' alt='11' referrerPolicy='no-referrer' /></p>
+<p><img src='img\12.png' alt='12' referrerPolicy='no-referrer' /></p>
+<ol start='12' >
+<li><p><strong>查看或合并文件内容：cat</strong></p>
+<pre><code class='language-c' lang='c'>cat a.txt //查看文件内容
+cat a.txt b.txt//同时查看多个文件内容
+cat a.txt &gt;&gt; b.txt//合并两个文件
+</code></pre>
+<p><img src='img\13.png' alt='13' referrerPolicy='no-referrer' /></p>
+<p><img src='img\14.png' alt='14' referrerPolicy='no-referrer' /></p>
+</li>
+<li><p><strong>文本搜索：grep</strong></p>
+</li>
+
+</ol>
+<ul>
+<li>允许对文件进行模式查找，如果匹配到，打印出来（在文本内搜索）</li>
+
+</ul>
+<pre><code class='language-c' lang='c'>格式：grep &#39;我&#39; b.txt
+grep -n &#39;我&#39; b.txt//搜索有‘我’字的行，并按行显示出来
+grep -nv &#39;我&#39; b.txt//搜索有‘我’字的行，并按行显示出所有非这行的所有行
+grep -i &#39;A&#39; b.txt//忽略大小写*
+</code></pre>
+<p><img src='img\15.png' alt='15' referrerPolicy='no-referrer' /></p>
+<p><img src='img\16.png' alt='16' referrerPolicy='no-referrer' /></p>
+<p><img src='img\17.png' alt='17' referrerPolicy='no-referrer' /></p>
+<ul>
+<li>正则表达式</li>
+
+</ul>
+<pre><code class='language-c' lang='c'>grep -n &#39;^a&#39; b.txt //显示以a 为开头的数据
+grep -n &#39;/$&#39; b.txt //搜索以/ 为结尾的数据
+grep -n &#39;^[a-z]&#39; b.txt  //显示以a-z为首字母的数据
+grep -n &#39;[a-z]$&#39; b.txt  //显示以a-z为结尾的数据
+</code></pre>
+<ol start='14' >
+<li><strong>计算文件行数和字数：wc</strong></li>
+
+</ol>
+<p><img src='img\18.png' alt='18' referrerPolicy='no-referrer' /></p>
+<pre><code class='language-c' lang='c'>wc -l b.txt//显示行数
+wc -w b.txt//显示单词数
+wc -c b.txt//显示文件大小（字节数）
+</code></pre>
+<ol start='15' >
+<li><strong>查找文件：find</strong></li>
+
+</ol>
+<pre><code class='language-c' lang='c'>find ./ -name a.txt//查找所有文件为a.txt 的
+find 目录 参数 文件名（文件名中可以使用通配符）
+-name 文件名
+-size 大小
+-prem rwx
+</code></pre>
+<p><img src='img\19.png' alt='19' referrerPolicy='no-referrer' /></p>
+<ol start='16' >
+<li><strong>拷贝文件：cp</strong></li>
+
+</ol>
+<pre><code class='language-c' lang='c'>cp -a day01 day02//拷贝所有文件
+cp -f //拷贝时删除已存在文件而不提示
+cp -i //拷贝时有文件相同，提示是否覆盖
+</code></pre>
+<p><img src='img\20.png' alt='20' referrerPolicy='no-referrer' /></p>
+<ol start='17' >
+<li><strong>移动文件：mv</strong></li>
+
+</ol>
+<pre><code class='language-c' lang='c'>-f //不交互
+-i //交互
+</code></pre>
+<ol start='18' >
+<li><strong>显示文件类型：file</strong></li>
+<li><strong>归档：tar</strong></li>
+
+</ol>
+<pre><code class='language-c' lang='c'>tar -cvf 文件名.tar 归档所有文件//文件夹也可以归档
+tar -xvf 文件名.tar
+-cvf //归档
+-xvf //接归档
+</code></pre>
+<p><img src='img\21.png' alt='21' referrerPolicy='no-referrer' /></p>
+<p><img src='img\22.png' alt='22' referrerPolicy='no-referrer' /></p>
+<ol start='20' >
+<li><strong>压缩：gzip</strong></li>
+
+</ol>
+<pre><code class='language-c' lang='c'>gzip txt.tar//压缩归档的文件（源文件不存在生成txt.tar.gz）
+gzip -d txt.tar.gz//解压缩
+</code></pre>
+<p><img src='img\23.png' alt='23' referrerPolicy='no-referrer' /></p>
+<p><img src='img\24.png' alt='24' referrerPolicy='no-referrer' /></p>
+<ol start='21' >
+<li><strong>归档并压缩</strong></li>
+
+</ol>
+<pre><code class='language-c' lang='c'>tar -czvf txt.tar.gz *.txt//gzip压缩归档并压缩所有.txt文件
+tar -xzvf txt.tar.gz //gzip解压缩一步解压缩（源压缩文件不会丢）
+解压到别的目录中时需要加 -C 解压路径
+tar -cjvf txt.tar.bz2 *.txt//bzip2方式压缩
+tar -xjvf txt,tar.bz2 -C 路径//bzip2方式结要说归档
+
+zip 文件名 *.txt //以zip格式压缩，自动归档和生成.zip文件
+unzip 文件名.tar.zip//以zip格式解压缩。
+unzip 文件名.zip 指定文件路径//zip压缩包指定解压文件夹
+</code></pre>
+<p><img src='img\25.png' alt='25' referrerPolicy='no-referrer' /></p>
+<p><img src='img\26.png' alt='26' referrerPolicy='no-referrer' /></p>
+<p><img src='img\28.png' alt='28' referrerPolicy='no-referrer' /></p>
+<p><img src='img\29.png' alt='29' referrerPolicy='no-referrer' /></p>
+<ol start='23' >
+<li><strong>查看：which</strong></li>
+
+</ol>
+<pre><code class='language-c' lang='c'>which ls//查看ls 命令的路径
+</code></pre>
+<p>&nbsp;</p>
+</body>
+</html>
