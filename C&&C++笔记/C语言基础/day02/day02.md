@@ -4,11 +4,11 @@
 
 1. **查看当前用户：whoami**
 
-![1](C:\Users\zhf28\Desktop\学习笔记\C&&C++笔记\C语言基础\day02\img\1.png)
+![1](img\1.png)
 
 2. **查看登录用户：who**
 
-![2](C:\Users\zhf28\Desktop\学习笔记\C&&C++笔记\C语言基础\day02\img\2.png)
+![2](img\2.png)
 
 2. **查看用户信息：w -l 用户名**
 
@@ -18,7 +18,7 @@
 >
 > 当在普通用户时，是退出中端
 
-![3](C:\Users\zhf28\Desktop\学习笔记\C&&C++笔记\C语言基础\day02\img\3.png)
+![3](img\3.png)
 
 5. **进入超级管理员：su**
 
@@ -50,9 +50,9 @@ sudo usermod -g 组名 用户名  //换组
 //只是开通了很小的权限
 ```
 
-![4](C:\Users\zhf28\Desktop\学习笔记\C&&C++笔记\C语言基础\day02\img\4.png)
+![4](img\4.png)
 
-![5](C:\Users\zhf28\Desktop\学习笔记\C&&C++笔记\C语言基础\day02\img\5.png)
+![5](img\5.png)
 
 9. **添加用户账号：useradd**
 
@@ -63,7 +63,7 @@ sudo usermod -g 组名 用户名  //换组
 useradd -d 目录 用户名 -g 组名 -m
 ```
 
-![6](C:\Users\zhf28\Desktop\学习笔记\C&&C++笔记\C语言基础\day02\img\6.png)
+![6](img\6.png)
 
 10. **删除用户：userdel**
 
@@ -88,9 +88,9 @@ a //all  表示三者皆是
 chmod 用户类型 +|-|= 
 ```
 
-![7](C:\Users\zhf28\Desktop\学习笔记\C&&C++笔记\C语言基础\day02\img\7.png)
+![7](img\7.png)
 
-![8](C:\Users\zhf28\Desktop\学习笔记\C&&C++笔记\C语言基础\day02\img\8.png)
+![8](img\8.png)
 
 13. **修改文件的所有者：chown**
 
